@@ -1,0 +1,6 @@
+D:\PIU\Proiect\Seriale\bin\Debug\Seriale.dll
+D:\PIU\Proiect\Seriale\bin\Debug\Seriale.pdb
+D:\PIU\Proiect\Seriale\obj\Debug\Seriale.csproj.AssemblyReference.cache
+D:\PIU\Proiect\Seriale\obj\Debug\Seriale.csproj.CoreCompileInputs.cache
+D:\PIU\Proiect\Seriale\obj\Debug\Seriale.dll
+D:\PIU\Proiect\Seriale\obj\Debug\Seriale.pdb

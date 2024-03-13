@@ -1,0 +1,11 @@
+D:\PIU\Proiect\StocareDate\bin\Debug\StocareDate.dll
+D:\PIU\Proiect\StocareDate\bin\Debug\StocareDate.pdb
+D:\PIU\Proiect\StocareDate\bin\Debug\Filme.dll
+D:\PIU\Proiect\StocareDate\bin\Debug\Seriale.dll
+D:\PIU\Proiect\StocareDate\bin\Debug\Filme.pdb
+D:\PIU\Proiect\StocareDate\bin\Debug\Seriale.pdb
+D:\PIU\Proiect\StocareDate\obj\Debug\StocareDate.csproj.AssemblyReference.cache
+D:\PIU\Proiect\StocareDate\obj\Debug\StocareDate.csproj.CoreCompileInputs.cache
+D:\PIU\Proiect\StocareDate\obj\Debug\StocareD.DBD3CCEE.Up2Date
+D:\PIU\Proiect\StocareDate\obj\Debug\StocareDate.dll
+D:\PIU\Proiect\StocareDate\obj\Debug\StocareDate.pdb

@@ -1,0 +1,14 @@
+D:\PIU\Proiect\Filme_Seriale\bin\Debug\Filme_Seriale.exe.config
+D:\PIU\Proiect\Filme_Seriale\bin\Debug\Filme_Seriale.exe
+D:\PIU\Proiect\Filme_Seriale\bin\Debug\Filme_Seriale.pdb
+D:\PIU\Proiect\Filme_Seriale\bin\Debug\Filme.dll
+D:\PIU\Proiect\Filme_Seriale\bin\Debug\Seriale.dll
+D:\PIU\Proiect\Filme_Seriale\bin\Debug\StocareDate.dll
+D:\PIU\Proiect\Filme_Seriale\bin\Debug\Filme.pdb
+D:\PIU\Proiect\Filme_Seriale\bin\Debug\Seriale.pdb
+D:\PIU\Proiect\Filme_Seriale\bin\Debug\StocareDate.pdb
+D:\PIU\Proiect\Filme_Seriale\obj\Debug\Filme_Seriale.csproj.AssemblyReference.cache
+D:\PIU\Proiect\Filme_Seriale\obj\Debug\Filme_Seriale.csproj.CoreCompileInputs.cache
+D:\PIU\Proiect\Filme_Seriale\obj\Debug\Filme_Se.11428D40.Up2Date
+D:\PIU\Proiect\Filme_Seriale\obj\Debug\Filme_Seriale.exe
+D:\PIU\Proiect\Filme_Seriale\obj\Debug\Filme_Seriale.pdb

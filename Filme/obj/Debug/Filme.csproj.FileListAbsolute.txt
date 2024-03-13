@@ -1,0 +1,6 @@
+D:\PIU\Proiect\Filme\bin\Debug\Filme.dll
+D:\PIU\Proiect\Filme\bin\Debug\Filme.pdb
+D:\PIU\Proiect\Filme\obj\Debug\Filme.csproj.AssemblyReference.cache
+D:\PIU\Proiect\Filme\obj\Debug\Filme.csproj.CoreCompileInputs.cache
+D:\PIU\Proiect\Filme\obj\Debug\Filme.dll
+D:\PIU\Proiect\Filme\obj\Debug\Filme.pdb
