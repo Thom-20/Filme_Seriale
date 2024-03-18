@@ -9,12 +9,7 @@ namespace Filme
 
     public class Film
     {
-        //proprietati auto-implemented
-        public int idfilm { get; set; }
-        // public string nume { get; set; }
-        //public string regizor { get; set; }
-        // public string gen { get; set; }
-        //public int an_lansare { get; set; }
+        
 
 
         string nume, regizor, gen;
