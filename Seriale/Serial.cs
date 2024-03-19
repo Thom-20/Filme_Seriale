@@ -8,12 +8,21 @@ namespace Seriale
 {
     public class Serial
     {
-        
+        // proprietati auto-implemented
+        public string nume {  get; set; }
+        public string regizor { get; set; }
+        public string gen {  get; set; }
+        public float durata { get; set; }
+        public int lansare {  get; set; }
+        public int sezoane { get; set; }
+        public int episoade { get; set; }
+        public int idserial { get; set; }
 
 
-       string nume, regizor, gen;
-       float durata;
-       int lansare, sezoane, episoade;
+
+        // string nume, regizor, gen;
+        // float durata;
+        // int lansare, sezoane, episoade;
 
 
         //	Constructor fara parametri
@@ -40,10 +49,40 @@ namespace Seriale
             durata = _durata;
         }
 
+        public static void AfisareSerialelansare(Serial[] seriale, int nrSeriale, int lansare)
+        {
+            bool exista = false;// Variabilă de verificare
+
+            Console.WriteLine("Serialele sunt:");
+            for (int contor = 0; contor < nrSeriale; contor++)
+            {
+                if (seriale[contor].lansare == lansare)
+                {
+                    string infoSerial = seriale[contor].Info();
+                    Console.WriteLine(infoSerial);
+                    exista = true; // setarea variabilelei la true daca am gasit >=1 film
+                }
+            }
+            if (!exista)
+            {
+                Console.WriteLine("Nu exista seriale lansate in anul mentionat!");
+            }
+        }
+
+        public static void AfisareSeriale(Serial[] seriale, int nrSeriale)
+        {
+            Console.WriteLine("Serialele sunt:");
+            for (int contor = 0; contor < nrSeriale; contor++)
+            {
+                string infoSerial = seriale[contor].Info();
+                Console.WriteLine(infoSerial);
+            }
+        }
+
         //	Metoda care returneaza informatiile despre film sub forma unui sir de caractere
         public string Info()
         {
-            string info = $"Numele serialului: {nume}, Regizor: {regizor}, Gen: {gen}, An lansare: {lansare}, Sezoane: {sezoane}, Episoade: {episoade}, Durata: {durata}.";
+            string info = $" Numele serialului: {nume}\n Regizor: {regizor}\n Gen: {gen}\n An lansare: {lansare}\n Sezoane: {sezoane}\n Episoade: {episoade}\n Durata unui episod: {durata}\n";
             return info;
         }
     }

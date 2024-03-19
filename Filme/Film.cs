@@ -9,12 +9,17 @@ namespace Filme
 
     public class Film
     {
-        
 
-
-        string nume, regizor, gen;
-        float durata;
-        int lansare;
+        // proprietati auto-implemented
+        public string nume { get; set; }
+        public string regizor { get; set; }
+        public string gen { get; set; }
+        public float durata { get; set; }
+        public int lansare { get; set; }
+        public int idfilm { get; set; }
+        //string nume, regizor, gen;
+        //float durata;
+        //int lansare;
 
 
         //	Constructor fara parametri
@@ -36,11 +41,40 @@ namespace Filme
             lansare = _lansare;
             durata = _durata;
         }
+        public static void AfisareFilmelansare(Film[] filme, int nrFilme, int lansare)
+        {
+            bool exista = false;// Variabilă de verificare
+
+            Console.WriteLine("Filmele sunt:");
+            for (int contor = 0; contor < nrFilme; contor++)
+            {
+                if (filme[contor].lansare == lansare)
+                {
+                    string infoFilm = filme[contor].Info();
+                    Console.WriteLine(infoFilm);
+                    exista = true; // setarea variabilelei la true daca am gasit >=1 film
+                }
+            }
+            if (!exista)
+            {
+                Console.WriteLine("Nu exista filme lansate in anul mentionat!");
+            }
+        }
+
+        public static void AfisareFilme(Film[] filme, int nrFilme)
+        {
+            Console.WriteLine("Filmele sunt:");
+            for (int contor = 0; contor < nrFilme; contor++)
+            {
+                string infoFilm = filme[contor].Info();
+                Console.WriteLine(infoFilm);
+            }
+        }
 
         //	Metoda care returneaza informatiile despre film sub forma unui sir de caractere
         public string Info()
         {
-            string info = $"Numele filmului: {nume}, Regizor: {regizor}, Gen: {gen}, An lansare: {lansare}, Durata: {durata}.";
+            string info = $" Numele filmului: {nume}\n Regizor: {regizor}\n Gen: {gen}\n An lansare: {lansare}\n Durata: {durata}\n";
             return info;
         }
     }
