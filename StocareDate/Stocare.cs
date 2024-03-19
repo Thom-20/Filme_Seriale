@@ -1,5 +1,6 @@
 ﻿using Filme;
 using Seriale;
+using System;
 namespace StocareDate
 {
     public class Stocare
@@ -42,5 +43,28 @@ namespace StocareDate
             nrSeriale = this.nrSeriale;
             return seriale;
         }
+        public Film GetFilm(string nume)
+        {
+            for(int i = 0;i<nrFilme;i++)
+            {
+                if (filme[i]!=null && filme[i].nume == nume)
+                {
+                    return filme[i];
+                }
+            }
+            return null; // Returnăm null dacă nu găsim niciun film cu numele dat
+        }
+        public Serial GetSerial(string nume)
+        {
+            for (int i = 0; i < nrSeriale; i++)
+            {
+                if (seriale[i] != null && seriale[i].nume == nume)
+                {
+                    return seriale[i];
+                }
+            }
+            return null; // Returnăm null dacă nu găsim niciun film cu numele dat
+        }
+
     }
 }
