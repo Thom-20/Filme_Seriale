@@ -11,11 +11,11 @@ namespace Filme_Seriale
     {
         static void Main()
         {
-            Stocare stocFilme = new Stocare();
+            StocareFilme stocFilme = new StocareFilme();
             Film filmnou = new Film();
             int nrFilme = 0;
 
-            Stocare stocSeriale = new Stocare();
+            StocareSeriale stocSeriale = new StocareSeriale();
             Serial serialnou = new Serial();
             int nrSeriale = 0;
 
@@ -27,41 +27,50 @@ namespace Filme_Seriale
             {
 
                 Console.WriteLine();
-                Console.WriteLine("F. Citire informatii film de la tastatura");
-                Console.WriteLine("S. Citire informatii serial de la tastatura");
-                Console.WriteLine("AF. Afisarea listei de filme");
-                Console.WriteLine("AS. Afisarea listei de seriale");
+                Console.WriteLine("C. Citire informatii film/serial de la tastatura:");
+                Console.WriteLine("A. Afisarea listei de filme/seriale");
                 Console.WriteLine("P. Cautare film/serial dupa nume");
-                Console.WriteLine("Y. Salvare filme/seriale in lista");
+                Console.WriteLine("L. Cautare film/serial dupa lansare");
+                Console.WriteLine("S. Salvare filme/seriale in lista");
                 Console.WriteLine("X. Inchidere program");
 
                 Console.WriteLine("Alegeti o optiune");
                 optiune = Console.ReadLine();
                 switch (optiune.ToUpper())
                 {
-                    case "F":
-                        filmnou = CitireFilmTastatura();
-                        ok = 1;
+                    case "C":
+                        Console.WriteLine("Introduceti ce vreti sa cititi (film/serial):");
+                        string cautare1 = Console.ReadLine();
+                        if (cautare1 == "film")
+                        {
+                            filmnou = StocareFilme.CitireFilmTastatura();
+                            ok = 1;
+                        }
+                        else if(cautare1 == "serial")
+                        {
+                            serialnou = StocareSeriale.CitireSerialTastatura();
+                            ok = 2;
+                        }
 
+                        break;
+
+
+                    case "A":
+                        Console.WriteLine("Introduceti ce vreti lista vreti sa vedeti ('filme'/'seriale'):");
+                        string afisare = Console.ReadLine();
+                        if (afisare == "filme")
+                        {
+                            Film[] filme = stocFilme.GetFilme(out nrFilme);
+                            StocareFilme.AfisareFilme(filme, nrFilme);
+                        }
+                        else if(afisare == "seriale")
+                        {
+                            Serial[] seriale = stocSeriale.GetSeriale(out nrSeriale);
+                            Serial.AfisareSeriale(seriale, nrSeriale);
+                        }
                         break;
 
                     case "S":
-                        serialnou = CitireSerialTastatura();
-                        ok = 2;
-
-                        break;
-
-                    case "AF":
-                        Film[] filme = stocFilme.GetFilme(out nrFilme);
-                        Film.AfisareFilme(filme, nrFilme);
-                        break;
-
-                    case "AS":
-                        Serial[] seriale = stocSeriale.GetSeriale(out nrSeriale);
-                        Serial.AfisareSeriale(seriale, nrSeriale);
-                        break;
-
-                    case "Y":
                         if (ok == 1)
                         {
                             int idfilm = nrFilme + 1;
@@ -84,7 +93,7 @@ namespace Filme_Seriale
 
                     case "P":
 
-                        Console.WriteLine("Introduceti ce vreti sa cautati (film/serial):");
+                        Console.WriteLine("Introduceti ce vreti sa cautati ('film'/'serial'):");
                         string cautare = Console.ReadLine();
                         if (cautare == "film")
                         {
@@ -134,8 +143,8 @@ namespace Filme_Seriale
                             Console.WriteLine("Introduceti anul de cautare:");
                             string _lansare = Console.ReadLine();
                             int lansare = Convert.ToInt32(_lansare);
-                            Film[] filmgasit = stocFilme.GetFilme(out nrFilme);
-                            Film.AfisareFilmelansare(filmgasit, nrFilme, lansare);
+                              Film[] filmegasite = stocFilme.GetFilmelansare(out nrFilme, lansare);
+                            StocareFilme.AfisareFilmelansare(filmegasite, nrFilme, lansare);
                             break;
                         }
                         else
@@ -144,7 +153,7 @@ namespace Filme_Seriale
                             Console.WriteLine("Introduceti anul de cautare:");
                             string _lansare = Console.ReadLine();
                             int lansare = Convert.ToInt32(_lansare);
-                            Serial[] serialgasit = stocSeriale.GetSeriale(out nrSeriale);
+                            Serial[] serialgasit = stocSeriale.GetSerialelansare(out nrSeriale, lansare) ;
                             Serial.AfisareSerialelansare(serialgasit, nrSeriale, lansare);
                             break;
                         }
@@ -159,61 +168,10 @@ namespace Filme_Seriale
                 }
             } while (optiune.ToUpper() != "X");
         }
-        public static Film CitireFilmTastatura()
-        {
-            Console.WriteLine("Introduceti numele filmului:");
-            string nume = Console.ReadLine();
+        
 
-            Console.WriteLine("Introduceti regizorul filmului:");
-            string regizor = Console.ReadLine();
-
-            Console.WriteLine("Introduceti genul filmului:");
-            string gen = Console.ReadLine();
-
-            Console.WriteLine("Introduceti anul lansarii filmului:");
-            string _lansare = Console.ReadLine();
-            int lansare = int.Parse(_lansare); // sau: int lansare = Convert.ToInt32(lansareStr);
-
-            Console.WriteLine("Introduceti durata filmului:");
-            string _durata = Console.ReadLine();
-            float durata = float.Parse(_durata); // sau: float lansare = Convert.ToSingle(lansareStr);
-
-            Film film = new Film(nume, regizor, gen, lansare, durata);
-
-            return film;
-        }
-
-        public static Serial CitireSerialTastatura()
-        {
-            Console.WriteLine("Introduceti numele serialului:");
-            string nume = Console.ReadLine();
-
-            Console.WriteLine("Introduceti regizorul serialului:");
-            string regizor = Console.ReadLine();
-
-            Console.WriteLine("Introduceti genul serialului:");
-            string gen = Console.ReadLine();
-
-            Console.WriteLine("Introduceti anul lansarii serialului:");
-            string _lansare = Console.ReadLine();
-            int lansare = int.Parse(_lansare); // sau: int lansare = Convert.ToInt32(_lansare);
-
-            Console.WriteLine("Introduceti numarul de episoade serialului:");
-            string _episoade = Console.ReadLine();
-            int episoade = Convert.ToInt32(_episoade);// sau: int episoade = int.Parse(_episoade);
-
-            Console.WriteLine("Introduceti numarul de sezoane a serialului:");
-            string _sezoane = Console.ReadLine();
-            int sezoane = int.Parse(_sezoane); // sau: int sezoane = Convert.ToInt32(_sezoane);
-
-            Console.WriteLine("Introduceti durata unui episod:");
-            string _durata = Console.ReadLine();
-            float durata = float.Parse(_durata); // sau: float an_lansare = Convert.ToSingle(lansareStr);
-
-            Serial serial = new Serial(nume, regizor, gen, lansare, episoade, sezoane, durata);
-
-            return serial;
-        }      
+       
+      
     }
 }
 

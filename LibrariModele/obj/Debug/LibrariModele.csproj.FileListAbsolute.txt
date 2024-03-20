@@ -1,0 +1,12 @@
+E:\PIU\Proiect\LibrariModele\bin\Debug\LibrariModele.dll
+E:\PIU\Proiect\LibrariModele\bin\Debug\LibrariModele.pdb
+E:\PIU\Proiect\LibrariModele\obj\Debug\LibrariModele.csproj.AssemblyReference.cache
+E:\PIU\Proiect\LibrariModele\obj\Debug\LibrariModele.csproj.CoreCompileInputs.cache
+E:\PIU\Proiect\LibrariModele\obj\Debug\LibrariModele.dll
+E:\PIU\Proiect\LibrariModele\obj\Debug\LibrariModele.pdb
+D:\PIU\Proiect\LibrariModele\bin\Debug\LibrariModele.dll
+D:\PIU\Proiect\LibrariModele\bin\Debug\LibrariModele.pdb
+D:\PIU\Proiect\LibrariModele\obj\Debug\LibrariModele.csproj.AssemblyReference.cache
+D:\PIU\Proiect\LibrariModele\obj\Debug\LibrariModele.csproj.CoreCompileInputs.cache
+D:\PIU\Proiect\LibrariModele\obj\Debug\LibrariModele.dll
+D:\PIU\Proiect\LibrariModele\obj\Debug\LibrariModele.pdb
