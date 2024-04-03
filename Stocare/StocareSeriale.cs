@@ -1,5 +1,4 @@
 ﻿using System;
-using Filme;
 using Seriale;
 namespace StocareDate
 {
@@ -54,36 +53,6 @@ namespace StocareDate
             }
             return null; // Returnăm null dacă nu găsim niciun film cu numele dat
         }
-        public static Serial CitireSerialTastatura()
-        {
-            Console.WriteLine("Introduceti numele serialului:");
-            string nume = Console.ReadLine();
-
-            Console.WriteLine("Introduceti regizorul serialului:");
-            string regizor = Console.ReadLine();
-
-            Console.WriteLine("Introduceti genul serialului:");
-            string gen = Console.ReadLine();
-
-            Console.WriteLine("Introduceti anul lansarii serialului:");
-            string _lansare = Console.ReadLine();
-            int lansare = int.Parse(_lansare); // sau: int lansare = Convert.ToInt32(_lansare);
-
-            Console.WriteLine("Introduceti numarul de episoade serialului:");
-            string _episoade = Console.ReadLine();
-            int episoade = Convert.ToInt32(_episoade);// sau: int episoade = int.Parse(_episoade);
-
-            Console.WriteLine("Introduceti numarul de sezoane a serialului:");
-            string _sezoane = Console.ReadLine();
-            int sezoane = int.Parse(_sezoane); // sau: int sezoane = Convert.ToInt32(_sezoane);
-
-            Console.WriteLine("Introduceti durata unui episod:");
-            string _durata = Console.ReadLine();
-            float durata = float.Parse(_durata); // sau: float an_lansare = Convert.ToSingle(lansareStr);
-
-            Serial serial = new Serial(nume, regizor, gen, lansare, episoade, sezoane, durata);
-
-            return serial;
-        }
+       
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Dynamic;
 using Filme;
 
 namespace StocareDate
@@ -52,29 +53,7 @@ namespace StocareDate
             }
             return null; // Returnăm null dacă nu găsim niciun film cu numele dat
         }
-        public static Film CitireFilmTastatura()
-        {
-            Console.WriteLine("Introduceti numele filmului:");
-            string nume = Console.ReadLine();
-
-            Console.WriteLine("Introduceti regizorul filmului:");
-            string regizor = Console.ReadLine();
-
-            Console.WriteLine("Introduceti genul filmului:");
-            string gen = Console.ReadLine();
-
-            Console.WriteLine("Introduceti anul lansarii filmului:");
-            string _lansare = Console.ReadLine();
-            int lansare = int.Parse(_lansare); // sau: int lansare = Convert.ToInt32(lansareStr);
-
-            Console.WriteLine("Introduceti durata filmului:");
-            string _durata = Console.ReadLine();
-            float durata = float.Parse(_durata); // sau: float lansare = Convert.ToSingle(lansareStr);
-
-            Film film = new Film(nume, regizor, gen, lansare, durata);
-
-            return film;
-        }
+       
         public static void AfisareFilmelansare(Film[] filme, int nrFilme, int lansare)
         {
             bool exista = false;// Variabilă de verificare
