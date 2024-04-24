@@ -10,6 +10,19 @@ namespace Filme_Seriale
 {
     class Program
     {
+        public enum GenFilm
+        {
+            Actiune = 1,
+            Comedie = 2,
+            Drama = 3,
+            SF = 4,
+            Horror = 5,
+            Romantic = 6,
+            Documentar = 7,
+            Altele = 8
+        };
+
+        public const GenFilm GEN_ALTELE = GenFilm.Altele;
         static void Main()
         {
             
@@ -21,21 +34,16 @@ namespace Filme_Seriale
            
             Film filmnou = new Film();
             int nrFilme = 0;
-            
-
-            StocareSeriale stocSeriale = new StocareSeriale();
-            Serial serialnou = new Serial();
-            int nrSeriale = 0;
-
-            
-            
-           
+            adminFilme.GetFilme(out nrFilme);
 
             string numeFisier2 = ConfigurationManager.AppSettings["NumeFisier"];
             string locatieFisierSolutie2 = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
             string caleCompletaFisier2 = locatieFisierSolutie2 + "\\" + numeFisier2;
             StocareSerialeFisier adminSeriale = new StocareSerialeFisier(caleCompletaFisier2);
-
+            StocareSeriale stocSeriale = new StocareSeriale();
+            Serial serialnou = new Serial();
+            int nrSeriale = 0;
+            adminSeriale.GetSeriale(out nrSeriale);
 
             string optiune;
             int ok = 0;
@@ -48,6 +56,7 @@ namespace Filme_Seriale
                 Console.WriteLine("C. Citire informatii film/serial de la tastatura:");
                 Console.WriteLine("A. Afisarea listei de filme/seriale");
                 Console.WriteLine("P. Cautare film/serial dupa nume");
+                Console.WriteLine("G. Cautare film/serial dupa gen");
                 Console.WriteLine("L. Cautare film/serial dupa lansare");
                 Console.WriteLine("S. Salvare filme/seriale in lista/fisier");
                 Console.WriteLine("X. Inchidere program");
@@ -131,7 +140,7 @@ namespace Filme_Seriale
                         {
                             Console.WriteLine("Introduceti numele filmului:");
                             string numeFilm = Console.ReadLine();
-                            Film filmgasit = stocFilme.GetFilm(numeFilm);
+                            Film filmgasit = stocFilme.GetFilmNume(numeFilm);
 
                             if (filmgasit != null)
                             {
@@ -164,6 +173,32 @@ namespace Filme_Seriale
                             }
                             break;
                         }
+                        break;
+
+                    case "G":
+
+                        Console.WriteLine("Alegeti un gen de film: ");
+                        Console.WriteLine("1 - Actiune \n" +
+                                          "2 - Comedie \n" +
+                                          "3 - Drama \n" +
+                                          "4 - SF \n" +
+                                          "5 - Horror \n" +
+                                          "6 - Romantic \n" +
+                                          "7 - Documentar \n" +
+                                          "8 - Altele \n");
+
+                        int optiune1 = Convert.ToInt32(Console.ReadLine());
+
+                        if (optiune1 == (int)GEN_ALTELE)
+                        {
+                            Console.WriteLine($"Ati ales genul de film \"Altele\": {GEN_ALTELE.ToString().ToUpper()}");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Ati ales genul de film: {(GenFilm)optiune1}");
+                        }
+
+                        Console.ReadKey();
                         break;
 
                     case "L":
@@ -250,7 +285,7 @@ namespace Filme_Seriale
             string _durata = Console.ReadLine();
             float durata = float.Parse(_durata); // sau: float an_lansare = Convert.ToSingle(lansareStr);
 
-            Serial serial = new Serial(nume, regizor, gen, lansare, episoade, sezoane, durata);
+            Serial serial = new Serial(nume, regizor, gen, lansare, durata, episoade, sezoane);
 
             return serial;
         }

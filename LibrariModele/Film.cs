@@ -9,17 +9,23 @@ namespace Filme
 
     public class Film
     {
+        // data membra privata
+        int []nota;
 
         // proprietati auto-implemented
-        public int idfilm { get; set; }
+        public int idfilm { get; set; } //identificator unic film
         public string nume { get; set; }
         public string regizor { get; set; }
-        public string gen { get; set; }
+        public string genFilm { get; set; }
         public float durata { get; set; }
         public int lansare { get; set; }
         
         //constante
         private const char SEPARATOR_PRINCIPAL_FISIER = ';';
+        private const char SEPARATOR_SECUNDAR_FISIER = ' ';
+        private const bool SUCCES = true;
+        public const int NOTA_MINIMA = 1;
+        public const int NOTA_MAXIMA = 5;
 
         private const int IDFILM = 0;
         private const int NUME = 1;
@@ -29,18 +35,13 @@ namespace Filme
         private const int LANSARE = 5;
 
 
-        //string nume, regizor, gen;
-        //float durata;
-        //int lansare;
-
-
-        //	Constructor fara parametri
-        public Film()
+    //	Constructor fara parametri
+    public Film()
         { 
             idfilm = 0;
             nume = string.Empty;
             regizor = string.Empty;
-            gen = string.Empty;
+            genFilm = string.Empty;
             lansare = 0;
             durata = 0;
         }
@@ -50,7 +51,7 @@ namespace Filme
         {
             nume = _nume;
             regizor = _regizor;
-            gen = _gen;
+            genFilm = _gen;
             lansare = _lansare;
             durata = _durata;
         }
@@ -59,7 +60,7 @@ namespace Filme
         //	Metoda care returneaza informatiile despre film sub forma unui sir de caractere
         public string Info()
         {
-            string info = $"ID: {idfilm}\n Numele filmului: {nume}\n Regizor: {regizor}\n Gen: {gen}\n An lansare: {lansare}\n Durata: {durata}\n";
+            string info = $"ID: {idfilm}\n Numele filmului: {nume}\n Regizor: {regizor}\n Gen: {genFilm}\n An lansare: {lansare}\n Durata: {durata}\n";
             return info;
         }
 
@@ -72,7 +73,7 @@ namespace Filme
             this.idfilm = Convert.ToInt32(dateFisier[IDFILM]);
             this.nume = dateFisier[NUME];
             this.regizor = dateFisier[REGIZOR];
-            this.gen = dateFisier[GEN];
+            this.genFilm = dateFisier[GEN];
             this.lansare = Convert.ToInt32(dateFisier[LANSARE]);
             this.durata = Convert.ToInt32(dateFisier[DURATA]);
         }
@@ -83,9 +84,9 @@ namespace Filme
                 (Convert.ToString(idfilm) ?? "0"),
                 (nume ?? " NECUNOSCUT "),
                 (regizor ?? " NECUNOSCUT "),
-                (gen ?? " NECUNOSCUT "),
-                (Convert.ToString(lansare) ?? " NECUNOSCUT "),
-                (Convert.ToString(durata) ?? " NECUNOSCUT "));
+                (genFilm ?? " NECUNOSCUT "),
+                (Convert.ToString(lansare) ?? " 0 "),
+                (Convert.ToString(durata) ?? " 0 "));
 
             return obiectFilmPentruFisier;
         }

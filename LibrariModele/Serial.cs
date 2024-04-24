@@ -12,7 +12,7 @@ namespace Seriale
         // proprietati auto-implemented
         public string nume {  get; set; }
         public string regizor { get; set; }
-        public string gen {  get; set; }
+        public string genSerial {  get; set; }
         public float durata { get; set; }
         public int lansare {  get; set; }
         public int sezoane { get; set; }
@@ -27,8 +27,9 @@ namespace Seriale
         private const int GEN = 3;
         private const int DURATA = 4;
         private const int LANSARE = 5;
-        private const int SEZOANE = 6;
-        private const int EPISOADE = 7;
+        private const int EPISOADE = 6;
+        private const int SEZOANE = 7;
+ 
 
         // string nume, regizor, gen;
         // float durata;
@@ -40,7 +41,7 @@ namespace Seriale
         {
             nume = string.Empty;
             regizor = string.Empty;
-            gen = string.Empty;
+            genSerial = string.Empty;
             lansare = 0;
             durata = 0;
             sezoane = 0;
@@ -48,11 +49,11 @@ namespace Seriale
         }
 
         //	Constructor cu parametri
-        public Serial(string _nume, string _regizor, string _gen, int _lansare, int _episoade, int _sezoane, float _durata)
+        public Serial(string _nume, string _regizor, string _gen, int _lansare, float _durata, int _episoade, int _sezoane)
         {
             nume = _nume;
             regizor = _regizor;
-            gen = _gen;
+            genSerial = _gen;
             lansare = _lansare;
             episoade = _episoade;
             sezoane = _sezoane;
@@ -92,7 +93,7 @@ namespace Seriale
         //	Metoda care returneaza informatiile despre film sub forma unui sir de caractere
         public string Info()
         {
-            string info = $"ID: {idserial}\n Numele serialului: {nume}\n Regizor: {regizor}\n Gen: {gen}\n An lansare: {lansare}\n Sezoane: {sezoane}\n Episoade: {episoade}\n Durata unui episod: {durata}\n";
+            string info = $"ID: {idserial}\n Numele serialului: {nume}\n Regizor: {regizor}\n Gen: {genSerial}\n An lansare: {lansare}\n Sezoane: {sezoane}\n Episoade: {episoade}\n Durata unui episod: {durata}\n";
             return info;
         }
 
@@ -105,25 +106,25 @@ namespace Seriale
             this.idserial = Convert.ToInt32(dateFisier[IDSERIAL]);
             this.nume = dateFisier[NUME];
             this.regizor = dateFisier[REGIZOR];
-            this.gen = dateFisier[GEN];
+            this.genSerial = dateFisier[GEN];
             this.lansare = Convert.ToInt32(dateFisier[LANSARE]);
-            this.sezoane = Convert.ToInt32(dateFisier[SEZOANE]);
-            this.episoade = Convert.ToInt32(dateFisier[EPISOADE]);
             this.durata = Convert.ToInt32(dateFisier[DURATA]);
-           
+            int ep = Convert.ToInt32(EPISOADE);
+            this.episoade = ep;
+            this.sezoane = Convert.ToInt32(dateFisier[SEZOANE]);
         }
         public string ConversieLaSir_PentruFisier()
         {
-            string obiectFilmPentruFisier = string.Format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}",
+            string obiectFilmPentruFisier = string.Format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}{7}{0}{8}{0}",
                 SEPARATOR_PRINCIPAL_FISIER,
                 IDSERIAL.ToString(),
                 (nume ?? " NECUNOSCUT "),
                 (regizor ?? " NECUNOSCUT "),
-                (gen ?? " NECUNOSCUT "),
-                (Convert.ToString(lansare) ?? " NECUNOSCUT "),
-                (Convert.ToString(sezoane) ?? " NECUNOSCUT "),
-                (Convert.ToString(episoade) ?? " NECUNOSCUT "),
-                (Convert.ToString(durata) ?? " NECUNOSCUT "));
+                (genSerial ?? " NECUNOSCUT "),
+                (Convert.ToString(lansare) ?? " 0 "),
+                (Convert.ToString(durata) ?? " 0 "),
+                (Convert.ToString(episoade) ?? " 0 "),
+                (Convert.ToString(sezoane) ?? " 0 "));
 
             return obiectFilmPentruFisier;
         }

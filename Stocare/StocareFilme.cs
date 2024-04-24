@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Dynamic;
+using System.IO;
 using Filme;
 
 namespace StocareDate
@@ -23,7 +24,7 @@ namespace StocareDate
             filme[nrFilme] = film;
             nrFilme++;
         }
-        public Filme.Film[] GetFilmelansare(out int nrFilme, int lansare)
+        public Film[] GetFilmelansare(out int nrFilme, int lansare)
         {
             nrFilme = 0;
             Film[] filmeGasite = new Film[this.nrFilme]; // Inițializăm un vector pentru a stoca filmele găsite
@@ -42,7 +43,7 @@ namespace StocareDate
             nrFilme = this.nrFilme;
             return filme;
         }
-        public Film GetFilm(string nume)
+        public Film GetFilmNume(string nume)
         {
             for (int i = 0; i < nrFilme; i++)
             {
@@ -53,7 +54,42 @@ namespace StocareDate
             }
             return null; // Returnăm null dacă nu găsim niciun film cu numele dat
         }
-       
+        public Film[] GetFilmeGen(out int nrFilme, string genFilm)
+        {
+            nrFilme = 0;
+            int contor = 0;
+            Film[] filmeGasite = new Film[this.nrFilme]; // Inițializăm un vector pentru a stoca filmele găsite
+            for (int i = 0; i < nrFilme; i++)
+            {
+                if (filme[i] != null && filme[i].genFilm == genFilm)
+                {
+                    contor = contor + 1;
+                    filmeGasite[nrFilme++] = filme[i]; // Adăugăm filmul găsit în vectorul de filme și incrementăm numărul de filme găsite
+                }
+            }
+            Console.WriteLine("Sunt " + contor + " filme de genul "  + genFilm + ":\n");
+            return filmeGasite;
+        }
+        public static void AfisareFilmeGen(Film[] filme, int nrFilme, string genFilm)
+        {
+            bool exista = false;// Variabilă de verificare
+
+            Console.WriteLine("Filmele sunt:");
+            for (int contor = 0; contor < nrFilme; contor++)
+            {
+                if (filme[contor].genFilm == genFilm)
+                {
+                    string infoFilm = filme[contor].Info();
+                    Console.WriteLine(infoFilm);
+                    exista = true; // setarea variabilelei la true daca am gasit >=1 film
+                }
+            }
+            if (!exista)
+            {
+                Console.WriteLine("Nu exista filme de genul mentionat!");
+            }
+        }
+
         public static void AfisareFilmelansare(Film[] filme, int nrFilme, int lansare)
         {
             bool exista = false;// Variabilă de verificare

@@ -1,0 +1,14 @@
+D:\PIU\Proiect\Filme_Seriale_UI_WindowsForms\obj\Debug\Filme_Seriale_UI_WindowsForms.csproj.AssemblyReference.cache
+D:\PIU\Proiect\Filme_Seriale_UI_WindowsForms\obj\Debug\Filme_Seriale_UI_WindowsForms.Properties.Resources.resources
+D:\PIU\Proiect\Filme_Seriale_UI_WindowsForms\obj\Debug\Filme_Seriale_UI_WindowsForms.csproj.GenerateResource.cache
+D:\PIU\Proiect\Filme_Seriale_UI_WindowsForms\obj\Debug\Filme_Seriale_UI_WindowsForms.csproj.CoreCompileInputs.cache
+D:\PIU\Proiect\Filme_Seriale_UI_WindowsForms\bin\Debug\Filme_Seriale_UI_WindowsForms.exe.config
+D:\PIU\Proiect\Filme_Seriale_UI_WindowsForms\bin\Debug\Filme_Seriale_UI_WindowsForms.exe
+D:\PIU\Proiect\Filme_Seriale_UI_WindowsForms\bin\Debug\Filme_Seriale_UI_WindowsForms.pdb
+D:\PIU\Proiect\Filme_Seriale_UI_WindowsForms\bin\Debug\LibrariModele.dll
+D:\PIU\Proiect\Filme_Seriale_UI_WindowsForms\bin\Debug\Stocare.dll
+D:\PIU\Proiect\Filme_Seriale_UI_WindowsForms\bin\Debug\LibrariModele.pdb
+D:\PIU\Proiect\Filme_Seriale_UI_WindowsForms\bin\Debug\Stocare.pdb
+D:\PIU\Proiect\Filme_Seriale_UI_WindowsForms\obj\Debug\Filme_Se.F23E87F0.Up2Date
+D:\PIU\Proiect\Filme_Seriale_UI_WindowsForms\obj\Debug\Filme_Seriale_UI_WindowsForms.exe
+D:\PIU\Proiect\Filme_Seriale_UI_WindowsForms\obj\Debug\Filme_Seriale_UI_WindowsForms.pdb

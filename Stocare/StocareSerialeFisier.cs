@@ -1,4 +1,6 @@
-﻿using Seriale;
+﻿using Filme;
+using Seriale;
+using System;
 using System.IO;
 
 namespace StocareFisier
@@ -48,5 +50,6 @@ namespace StocareFisier
             }
             return seriale;
         }
+        
     }
 }

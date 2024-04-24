@@ -1,4 +1,5 @@
 ﻿using System;
+using Filme;
 using Seriale;
 namespace StocareDate
 {
@@ -53,6 +54,18 @@ namespace StocareDate
             }
             return null; // Returnăm null dacă nu găsim niciun film cu numele dat
         }
-       
+        public Serial GetSerialeGen(string genSerial)
+        {
+            int contor = 0;
+            for (int i = 0; i < nrSeriale; i++)
+            {
+                if (seriale[i] != null && seriale[i].genSerial == genSerial)
+                {
+                    contor += 1;
+                    return seriale[i];
+                }
+            }
+            return null; // Returnăm null dacă nu găsim niciun gen de serial dat
+        }
     }
 }
